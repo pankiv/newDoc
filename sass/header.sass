@@ -18,6 +18,16 @@ body
 	color: #fff
 	background-position: center
 	background-size: cover
+	position: relative
+	&::after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: lightblue
+		opacity: .5
 	a 
 		display: inline-block
 		padding: 10px 20px
@@ -56,8 +66,12 @@ body
 .nivagation
 	position: relative
 	padding: 0 30px 
+	z-index: 2
 	.owl-nav
 		font-size: em(30px)
+		transition: all .8s
+		&:hover
+			color: pink
 	.owl-prev
 		position: absolute
 		left: 0

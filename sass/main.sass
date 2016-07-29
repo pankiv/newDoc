@@ -32,5 +32,239 @@ body textarea:required:valid
 //Custom Styles Here
 
 
+
+
+// svg sliver
+
+
+svg, image
+	max-width: 100%
+
+.cd-svg-clipped-slider
+	position: relative
+	width: 100%
+	max-width: 1440px
+	margin: 4em auto
+	.gallery-wrapper, .gallery, .caption
+		position: relative
+	.gallery li
+		position: absolute
+		z-index: 1
+		top: 0
+		left: 25%
+		width: 50%
+		height: 100%
+		opacity: 0
+		-webkit-transform: translateX(75%) scale(0.4)
+		-ms-transform: translateX(75%) scale(0.4)
+		transform: translateX(75%) scale(0.4)
+		cursor: pointer
+		-webkit-transition: opacity .3s, -webkit-transform .3s ease-in-out
+		transition: opacity .3s, -webkit-transform .3s ease-in-out
+		transition: opacity .3s, transform .3s ease-in-out
+		transition: opacity .3s, transform .3s ease-in-out, -webkit-transform .3s ease-in-out
+		&.selected
+			position: relative
+			z-index: 3
+			height: 0
+			padding-bottom: 50%
+			opacity: 1
+			-webkit-transform: translateX(0) scale(1)
+			-ms-transform: translateX(0) scale(1)
+			transform: translateX(0) scale(1)
+			cursor: auto
+		&.left, &.left-hide
+			transform: translateX(-75%) scale(0.4)
+		&.left, &.right
+			z-index: 2
+			opacity: 1
+	.svg-wrapper
+		height: 0
+		padding-bottom: 100%
+	svg
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+	use.cover-layer
+		fill: #243238
+		-webkit-transition: opacity .3s
+		transition: opacity .3s
+		opacity: .2
+		&:hover
+			opacity: 0
+	.gallery li.selected use.cover-layer
+		opacity: 0
+	.caption
+		margin: 1em 0
+		overflow: hidden
+		li
+			position: absolute
+			z-index: 1
+			top: 0
+			left: 0
+			text-align: center
+			width: 100%
+			-webkit-transform: translateX(100px)
+			-ms-transform: translateX(100px)
+			transform: translateX(100px)
+			opacity: 0
+			padding: 1em 0
+			-webkit-transition: opacity .3s, -webkit-transform .3s ease-in-out
+			transition: opacity .3s, -webkit-transform .3s ease-in-out
+			transition: opacity .3s, transform .3s ease-in-out
+			transition: opacity .3s, transform .3s ease-in-out, -webkit-transform .3s ease-in-out
+			&.selected
+				z-index: 2
+				position: relative
+				-webkit-transform: translateX(0)
+				-ms-transform: translateX(0)
+				transform: translateX(0)
+				opacity: 1
+			&.left
+				-webkit-transform: translateX(-100px)
+				-ms-transform: translateX(-100px)
+				transform: translateX(-100px)
+	.navigation a
+		position: absolute
+		left: 12.5%
+		-webkit-transform: translateX(-50%) translateY(-50%) scale(0.7)
+		-ms-transform: translateX(-50%) translateY(-50%) scale(0.7)
+		transform: translateX(-50%) translateY(-50%) scale(0.7)
+		top: 50%
+		z-index: 4
+		pointer-events: none
+		height: 48px
+		width: 48px
+		color: transparent
+		overflow: hidden
+		white-space: nowrap
+		text-indent: 100%
+		-webkit-transition: opacity .3s, -webkit-transform .3s
+		transition: opacity .3s, -webkit-transform .3s
+		transition: transform .3s, opacity .3s
+		transition: transform .3s, opacity .3s, -webkit-transform .3s
+		background: url(../img/cd-icon-arrows.svg) no-repeat 0 0
+		&.next
+			left: auto
+			right: 12.5%
+			-webkit-transform: translateX(50%) translateY(-50%) scale(0.7)
+			-ms-transform: translateX(50%) translateY(-50%) scale(0.7)
+			transform: translateX(50%) translateY(-50%) scale(0.7)
+			background-position: -48px 0
+
+@media only screen and (min-width: 768px)
+	.cd-svg-clipped-slider .caption li
+		font-size: 2.4rem
+
+@media only screen and (min-width: 1170px)
+	.cd-svg-clipped-slider
+		width: 90%
+		.gallery li
+			left: 30%
+			width: 40%
+			-webkit-transform: translateX(80%) scale(0.4)
+			-ms-transform: translateX(80%) scale(0.4)
+			transform: translateX(80%) scale(0.4)
+			&.selected
+				padding-bottom: 40%
+			&.left, &.left-hide
+				-webkit-transform: translateX(-80%) scale(0.4)
+				-ms-transform: translateX(-80%) scale(0.4)
+				transform: translateX(-80%) scale(0.4)
+
+.no-csspointerevents .cd-svg-clipped-slider .navigation a
+	display: none
+
+@media only screen and (min-width: 1170px)
+	.cd-svg-clipped-slider .navigation a
+		left: 18%
+		-webkit-transform: translateX(-50%) translateY(-50%)
+		-ms-transform: translateX(-50%) translateY(-50%)
+		transform: translateX(-50%) translateY(-50%)
+		&.next
+			left: auto
+			right: 18%
+			-webkit-transform: translateX(50%) translateY(-50%)
+			-ms-transform: translateX(50%) translateY(-50%)
+			transform: translateX(50%) translateY(-50%)
+
+.cd-svg-clipped-slider
+	&.prev-hidden .navigation a.prev, &.next-hidden .navigation a.next
+		opacity: 0
+	.navigation a
+		&.prev.active
+			-webkit-animation: cd-click-prev .3s
+			animation: cd-click-prev .3s
+		&.next.active
+			-webkit-animation: cd-click-next .3s
+			animation: cd-click-next .3s
+
+@-webkit-keyframes cd-click-prev
+	0%
+		-webkit-transform: translateX(-50%) translateY(-50%) scale(0.8)
+		transform: translateX(-50%) translateY(-50%) scale(0.8)
+
+	100%
+		-webkit-transform: translateX(-50%) translateY(-50%) scale(1)
+		transform: translateX(-50%) translateY(-50%) scale(1)
+
+
+@keyframes cd-click-prev
+	0%
+		-webkit-transform: translateX(-50%) translateY(-50%) scale(0.8)
+		transform: translateX(-50%) translateY(-50%) scale(0.8)
+
+	100%
+		-webkit-transform: translateX(-50%) translateY(-50%) scale(1)
+		transform: translateX(-50%) translateY(-50%) scale(1)
+
+
+@-webkit-keyframes cd-click-next
+	0%
+		-webkit-transform: translateX(50%) translateY(-50%) scale(0.8)
+		transform: translateX(50%) translateY(-50%) scale(0.8)
+
+	100%
+		-webkit-transform: translateX(50%) translateY(-50%) scale(1)
+		transform: translateX(50%) translateY(-50%) scale(1)
+
+
+@keyframes cd-click-next
+	0%
+		-webkit-transform: translateX(50%) translateY(-50%) scale(0.8)
+		transform: translateX(50%) translateY(-50%) scale(0.8)
+
+	100%
+		-webkit-transform: translateX(50%) translateY(-50%) scale(1)
+		transform: translateX(50%) translateY(-50%) scale(1)
+
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain)
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  vertical-align: baseline
+
+ol, ul
+  list-style: none
+
+
+
+
+
+
+
+
+
+
+
 //ALWAYS END
 @import "media"

@@ -1,0 +1,18 @@
+Remember that you can report errors and get help in https://github.com/NicoSantangelo/sublime-gulp
+
+07-26-2016 21:22:
+C:\Users\Vasul\Desktop\start_html-master\git\.sublime-gulp-tmp.js:26
+	.pipe(gulp.dest("./app/js/");
+	                           ^
+
+SyntaxError: missing ) after argument list
+    at exports.runInThisContext (vm.js:53:16)
+    at Module._compile (module.js:373:25)
+    at Object.Module._extensions..js (module.js:416:10)
+    at Module.load (module.js:343:32)
+    at Function.Module._load (module.js:300:12)
+    at Module.require (module.js:353:17)
+    at require (internal/module.js:12:17)
+    at requireGulp (C:\Users\Vasul\AppData\Roaming\Sublime Text 3\Packages\Gulp\write_tasks_to_cache.js:28:16)
+    at Object.<anonymous> (C:\Users\Vasul\AppData\Roaming\Sublime Text 3\Packages\Gulp\write_tasks_to_cache.js:83:12)
+    at Module._compile (module.js:409:26)
