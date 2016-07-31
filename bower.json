@@ -3,6 +3,7 @@
   "dependencies": {
     "jquery": "^3.1.0",
     "owl.carousel": "OwlCarousel2#^2.1.6",
-    "font-awesome": "fontawesome#^4.6.3"
+    "font-awesome": "fontawesome#^4.6.3",
+    "Slicebox": "*"
   }
 }

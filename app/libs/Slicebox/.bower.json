@@ -1,0 +1,14 @@
+{
+  "name": "Slicebox",
+  "homepage": "https://github.com/codrops/Slicebox",
+  "_release": "fe05654e3e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "fe05654e3eb268d52d2082eb0af115b4a869e18d"
+  },
+  "_source": "https://github.com/codrops/Slicebox.git",
+  "_target": "*",
+  "_originalSource": "Slicebox",
+  "_direct": true
+}

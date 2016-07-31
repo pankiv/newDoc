@@ -5,6 +5,7 @@
 @import "app/libs/animate/animate.sass"
 @import "app/libs/owl.carousel/dist/assets/owl.carousel.min"
 @import "app/libs/font-awesome/scss/font-awesome"
+@import "app/libs/Slicebox/css/slicebox"
 
 *::-webkit-input-placeholder
 	color: #666
@@ -31,7 +32,10 @@ body textarea:required:valid
 
 //Custom Styles Here
 
-
+a 
+	&:hover, &:focus
+		text-decoration: none
+		color: #fff
 
 
 // svg sliver
@@ -248,23 +252,184 @@ svg, image
  * License: none (public domain)
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
-  margin: 0
-  padding: 0
-  border: 0
-  vertical-align: baseline
+	margin: 0
+	padding: 0
+	border: 0
+	vertical-align: baseline
 
 ol, ul
-  list-style: none
+	list-style: none
 
 
 
 
 
+// triger
+
+.tolltip
+	width: 100%
+	height: 100vh
+	display: table
+	background-color: #3C3744
+	.center
+		display: table-cell
+		vertical-align: middle
+		text-align: center
 
 
+.triger
+	position: relative
+	display: inline-block
+	background-color: #3066BE
+	width: 280px
+	height: 60px
+	color: #fff
+	line-height: 60px
+	border-radius: 50em
+	text-align: center
+	span
+		overflow: hidden
+	span, em, i
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		transition: all .5s
+	i 
+		background: url(../img/downl.svg) no-repeat center center
+		top: 100%
+	&:hover
+		i 
+			top: 0
+		em
+			top: -100%	
+		&::before, &::after
+			opacity: 1
+			visibility: visible
+		&::before
+			bottom: 85px
+		&::after
+			bottom: 55px
+	&::before
+		position: absolute
+		content: 'Ooops'
+		position: absolute
+		width: 150px
+		height: 60px
+		line-height: 60px
+		background-color: #B4C5E4
+		bottom: 0
+		color: #000
+		left: calc(50% - 75px)
+		border-radius: .6em
+		opacity: 0
+		transition: opacity .4s, visibility .4s, bottom .5s
+		visibility: hidden
+	&::after
+		position: absolute
+		content: ''
+		width: 0
+		height: 0
+		border: 15px solid transparent
+		border-top-color: #B4C5E4
+		left: calc(50% - 15px)
+		bottom: 0
+		opacity: 0
+		transition: opacity .4s, visibility .4s, bottom .5s
+		visibility: hidden
 
 
+	// slicebox
 
+.shadow
+	width: 100%
+	height: 168px
+	position: relative
+	margin-top: -110px
+	background: transparent url(../img/slidebox/shadow.png) bottom center
+	background-size: 100% 100%
+	z-index: -1
+	display: none
+
+.sb-description h3
+	font-size: 20px
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3)
+	a
+		color: #4a3c27
+		text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5)
+
+.nav-arrows
+	display: none
+	a
+		width: 42px
+		height: 42px
+		background: #cbbfae url(../img/slidebox/nav.png) no-repeat top left
+		position: absolute
+		top: 50%
+		left: 2px
+		text-indent: -9000px
+		cursor: pointer
+		margin-top: -21px
+		opacity: 0.9
+		border-radius: 50%
+		box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8)
+		&:first-child
+			left: auto
+			right: 2px
+			background-position: top right
+		&:hover
+			opacity: 1
+
+.nav-dots
+	text-align: center
+	position: absolute
+	bottom: -5px
+	height: 30px
+	width: 100%
+	left: 0
+	display: none
+	span
+		display: inline-block
+		width: 16px
+		height: 16px
+		border-radius: 50%
+		margin: 3px
+		background: #cbbfae
+		cursor: pointer
+		box-shadow: 0 1px 1px rgba(255, 255, 255, 0.6), inset 0 1px 1px rgba(0, 0, 0, 0.1)
+		&.nav-dot-current
+			box-shadow: 0 1px 1px rgba(255, 255, 255, 0.6), inset 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #cbbfae, inset 0 0 0 8px #fff
+
+.nav-options
+	width: 70px
+	height: 30px
+	position: absolute
+	right: 70px
+	bottom: 0px
+	display: none
+	span
+		width: 30px
+		height: 30px
+		background: #cbbfae url(../img/options.png) no-repeat top left
+		text-indent: -9000px
+		cursor: pointer
+		opacity: 0.7
+		display: inline-block
+		border-radius: 50%
+		&:first-child
+			background-position: -30px 0px
+			margin-right: 3px
+		&:hover
+			opacity: 1
+
+
+.mySlicebox
+	position: relative
+	max-width: 840px
+	width: 100%
+	padding: 0 50px
+	margin: 0 auto
 
 //ALWAYS END
 @import "media"

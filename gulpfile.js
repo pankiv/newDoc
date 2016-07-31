@@ -44,7 +44,8 @@ gulp.task('scripts', function() {
 		'./app/libs/modernizr/modernizr.js',
 		'./app/libs/jquery/dist/jquery.min.js',
 		'./app/libs/owl.carousel/dist/owl.carousel.min.js',
-		'./app/libs/snap.svg-min.js'
+		'./app/libs/snap.svg-min.js',
+		'./app/libs/Slicebox/js/jquery.slicebox.min.js'
 
 		])
 	.pipe(concat('libs.js'))
